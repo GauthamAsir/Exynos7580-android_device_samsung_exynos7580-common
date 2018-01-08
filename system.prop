@@ -6,7 +6,8 @@ audio_hal.disable_two_mic=true
 debug.hwc.force_gpu=1
 
 # Wifi
-wifi.interface=wlan0
+wifi.interface=wlan0 \
+net.tethering.noprovisioning=true
 
 # media
 media.stagefright.legacyencoder=1
