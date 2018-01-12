@@ -68,7 +68,9 @@ PRODUCT_PACKAGES += \
 # Graphics
 PRODUCT_PACKAGES += \
     gralloc.exynos5 \
-    hwcomposer.exynos5
+    hwcomposer.exynos5 \
+		libion \
+		libfimg
 
 # Libstlport
 PRODUCT_PACKAGES += \
