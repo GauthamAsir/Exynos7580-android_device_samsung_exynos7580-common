@@ -72,10 +72,6 @@ PRODUCT_PACKAGES += \
 		libion \
 		libfimg
 
-# Samsung Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
-
 # Libstlport
 PRODUCT_PACKAGES += \
     libstlport
@@ -129,3 +125,5 @@ $(call inherit-product, hardware/samsung_slsi-cm/exynos7580/exynos7580.mk)
 # misc
 PRODUCT_PACKAGES += \
  	  FlipFlap
+
+
