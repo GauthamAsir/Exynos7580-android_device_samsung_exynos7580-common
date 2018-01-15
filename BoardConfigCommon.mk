@@ -77,11 +77,6 @@ TARGET_GLOBAL_CFLAGS += -DEXYNOS5_ENHANCEMENTS
 # Use Exynos BGRA mixer
 BOARD_USE_BGRA_8888 := true
 
-# Samsung Doze
-
-PRODUCT_PACKAGES += \
-      SamsungDoze
-
 ### SURFACEFLINGER
 # frameworks/native/services/surfaceflinger
 # Android keeps 2 surface buffers at all time in case the hwcomposer
