@@ -137,8 +137,8 @@ struct pcm_config pcm_config_in = {
 struct pcm_config pcm_config_in_low_latency = {
     .channels = 2,
     .rate = 48000,
-    .period_size = AUDIO_CAPTURE_LOW_LATENCY_PERIOD_SIZE,
-    .period_count = AUDIO_CAPTURE_LOW_LATENCY_PERIOD_COUNT,
+    .period_size = 960,
+    .period_count = 2,
     .format = PCM_FORMAT_S16_LE,
 };
 
@@ -594,20 +594,20 @@ static void force_non_hdmi_out_standby(struct audio_device *adev)
 static void start_bt_sco(struct audio_device *adev)
 {
     struct pcm_config *sco_config;
-    
+
     if (adev->pcm_sco_rx != NULL || adev->pcm_sco_tx != NULL) {
         ALOGW("%s: SCO PCMs already open!\n", __func__);
         return;
     }
 
     ALOGV("%s: Opening SCO PCMs", __func__);
-    
+
     if (adev->wb_amr) {
         sco_config = &pcm_config_sco_wide;
     } else {
         sco_config = &pcm_config_sco;
     }
-    
+
     adev->pcm_sco_rx = pcm_open(PCM_CARD,
                                 PCM_DEVICE_SCO,
                                 PCM_OUT | PCM_MONOTONIC,
@@ -1356,6 +1356,9 @@ static int out_set_parameters(struct audio_stream *stream, const char *kvpairs)
              * If we switch from earpiece to speaker, we need to fully reset the
              * modem audio path.
              */
+             if ((adev->mode == AUDIO_MODE_IN_CALL) && !adev->in_call) {
+                start_call(adev);
+            }
             if (adev->in_call) {
                 if (route_changed(adev)) {
                     stop_call(adev);
