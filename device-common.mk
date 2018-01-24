@@ -73,8 +73,8 @@ PRODUCT_PACKAGES += \
 		libfimg
 
 # Samsung Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
+#PRODUCT_PACKAGES += \
+    #SamsungDoze
 
 # Libstlport
 PRODUCT_PACKAGES += \
@@ -90,8 +90,8 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
 # hardware/samsung/AdvancedDisplay (MDNIE)
-PRODUCT_PACKAGES += \
-    AdvancedDisplay
+#PRODUCT_PACKAGES += \
+    #AdvancedDisplay
 
 # Ramdisk
 PRODUCT_PACKAGES += \
