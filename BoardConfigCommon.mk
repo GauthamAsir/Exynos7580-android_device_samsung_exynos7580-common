@@ -227,4 +227,7 @@ WIFI_BAND                        := 802_11_ABG
 # MACLOADER
 BOARD_HAVE_SAMSUNG_WIFI          := true
 
+# DT2W
+TARGET_TAP_TO_WAKE_NODE := /sys/class/sec/tsp/dt2w_enable
+
 endif 
